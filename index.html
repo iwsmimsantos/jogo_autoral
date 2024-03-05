@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do macaquinho</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.23.0/dist/phaser.js"></script>
+    
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+
+</head>
+<body> <!--ADICIONAR CENAS EM ORDEM DECRESCENTE (PRIMEIRAS CENAS NO TOPO DA LISTA)-->
+    <script src = "StartScene.js" ></script>
+    <script src = "JogoScene.js" ></script>
+    <script type="text/javascript">
+
+        /*Global variables definition*/
+        const config = {
+            type: Phaser.AUTO,
+            width: 800, //largura da tela do jogo
+            height: 540, //altura da tela do jogo
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 90 },
+                    debug: true
+                }
+            },
+            parent: "game",
+            dom:{
+               createContainer: true,
+            },
+            scene: [StartScene, JogoScene]
+        };
+        var game = new Phaser.Game(config);
+        game.scene.start('StartScene');
+        
+    </script>
+    <!-- <script src = "Phase1.js" ></script> -->
+</body>
+</html>
